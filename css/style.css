@@ -23,7 +23,7 @@
 --- COLORS
 
     -BRAND/PRIMARY COLOR: #e67e22
-    -TINTS: #fdf2e9, #f8d8bd
+    -TINTS: #fdf2e9, #fae5d3, #f8d8bd
     -SHADES: #cf711f
     -ACCENTS:
     -GREY COLOR: 
@@ -67,7 +67,8 @@ body {
 }
 
 .heading-primary,
-.heading-secondary {
+.heading-secondary,
+.heading-tertiary {
   color: #2e1907;
   font-weight: 700;
   /* for very small spacing fixes/values you don't 
@@ -84,6 +85,12 @@ body {
   font-size: 4.4rem;
   line-height: 1.2;
   margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
 }
 
 .subheading {
@@ -168,12 +175,18 @@ body {
 /* turn element into grid container */
 .grid {
   display: grid;
-  gap: 9.6rem;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
 }
 
 /* add grid and grd--2-cols to class name of html parent element you want to have two columns on */
 .grid--2-cols {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--center-v {
+  /* aligns child elements of container element to center vertically */
+  align-items: center;
 }
 
 /* 1140 or 1200 pixels is the standard width size for webpages */
@@ -305,6 +318,60 @@ body {
   padding: 9.6rem 0;
 }
 
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
 .step-img {
+  width: 35%;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  background-color: #fdf2e9;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step-img-box::before {
+  width: 60%;
+  /* trick to make the psueudo element height the same as width - 
+  set padding-bottom to the same percentage/size of width */
+  padding-bottom: 60%;
+
+  background-color: #fdf2e9;
+
+  /* send to back */
+  z-index: -2;
+}
+
+.step-img-box::after {
   width: 50%;
+  padding-bottom: 50%;
+
+  background-color: #fae5d3;
+  z-index: -1;
+}
+
+.step-img-box {
+  /* places child elements in flex container and centers them horizontally (justify-content) and vertically (align-items)*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
 }
