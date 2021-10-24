@@ -304,6 +304,36 @@ body {
 }
 
 /********************************/
+/* FEATURED IN SECTION */
+/********************************/
+
+.section-featured {
+  padding-top: 4.8rem;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos img {
+  height: 3.2rem;
+  /* filter has a ton of fun things/filters it can apply to elements to adjust the look of them */
+  filter: brightness(0);
+  opacity: 50%;
+}
+
+/********************************/
 /* HOW TO */
 /********************************/
 
