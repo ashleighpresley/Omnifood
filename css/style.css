@@ -23,7 +23,7 @@
 --- COLORS
 
     -BRAND/PRIMARY COLOR: #e67e22
-    -TINTS: #fdf2e9, #fae5d3, #f8d8bd
+    -TINTS: #fdf2e9, #fae5d3, #f8d8bd, #eb984e
     -SHADES: #cf711f
     -ACCENTS:
     -GREY COLOR: 
@@ -63,6 +63,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+*:focus {
+  /* if you don't like the default look of when you click tab and it highlights with button/componenet you are on,
+  you can change the look by selected all the elements with the * selector and the focus psuedo element and 
+  resetting the look of the outline, by setting it to outline:none and then whatever you want (like box-shadow, or a different styled outline)*/
+  /* another option:
+  outline: 4px dotted #e67e22;
+  outline-offset: 8px;
+   */
+
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 
 html {
@@ -119,7 +132,8 @@ strong {
 }
 
 .btn:link,
-.btn:visited {
+.btn:visited,
+.btn {
   display: inline-block;
   font-size: 2rem;
   font-weight: 600;
@@ -132,6 +146,10 @@ strong {
   that all the properties will be animated. For this element, the button will transition
   from one color to the next smoothly rather than just jumping from one to the next */
   transition: all 1s;
+
+  /* only neccessary for .btn */
+  cursor: pointer;
+  border: none;
 }
 
 .btn--start:link,
@@ -742,4 +760,99 @@ will get a margin-bottom of 9.6rem*/
   font-size: 1.6rem;
   line-height: 1.6;
   text-align: center;
+}
+
+/********************************/
+/* CTA */
+/********************************/
+
+.section-cta {
+  padding: 9.6rem 0;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* you can specify a degree amount or use english words like "to bottom" or "to top left" which will flow from the first color to the second color towards the bottom or the top left */
+  background-image: linear-gradient(to top left, #eb984e, #e67e22);
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #2e1907;
+}
+
+.cta .heading-secondary {
+  color: #2e1907;
+  margin-bottom: 3.2rem;
+}
+
+.cta-img-box {
+  /* in the css file - the one were currently in - that is usally inside of a css/styles foler.
+  So to access images here that are in a different folder, we need to first add ../ to the url to
+  the file to tell the code to go out of the current folder*/
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.3),
+      rgba(230, 125, 34, 0.3)
+    ),
+    url("../img/eating.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  /* placeholder text does not automatically have the same font as the rest of the text, if you want it to then you need to add font-family: inherit */
+  font-family: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: inherit;
+}
+
+.cta-form input::placeholder {
+  color: rgb(197, 197, 197);
+}
+
+.btn--form {
+  background-color: #5e330e;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #45260a;
+  color: #fdf2e9;
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }

@@ -548,6 +548,50 @@
           </div>
         </div>
       </section>
+
+            <!-------------------------- CALL TO ACTION -------------------------->
+            <section class="section-cta">
+              <div class="container">
+                <div class="cta">
+                <div class="cta-text-box">
+                  <h2 class="heading-secondary">Get your first meal for free!</h2>
+                  <p class="cta-text">Healthy, tasty and hassle-free meals are waiting for you. Start eating well today. You can cancel or pause anytime. And the first meal is on us!
+                  </p>
+                
+                  <form class="cta-form grid grid--2-cols" action="#">
+                    <div>
+                    <label for="full-name">Full Name:</label>
+                    <!-- the required keyword can be added so a user cannot submit a form until all the required input fields are filled out -->
+                    <input id="full-name" type="text" placeholder="John Smith" required/>
+                  </div>
+
+                  <div>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" placeholder="jsmith@gmail.com" required/>
+                  </div>
+
+                  <div>
+                    <label for="select-where">Where did you hear from us?</label>
+                    <select id="select-where" required>
+                      <!-- for the first value, "Please choose one option", we set the value to an empty string. This is so the user will choose an option, the form won't submit with an option that has an empty value selected. -->
+                      <option value="">Please choose one option:</option>
+                      <option value="friends">Friends and family</option>
+                      <option value="youtube">Youtube Video</option>
+                      <option value="podcast">Podcast</option>
+                      <option value="facebook-ad">Facebook ad</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                    <button class="btn btn--form">Sign up now</button>
+                  </form>
+                </div>
+
+                <!-- since this div has no content, it will not be read out to those using a screen reader
+                  However we can fix this by specifying a role of 'img', saying that this div just contains an image, and can
+                describe the image using the "aria-label" tag  -->
+                <div class="cta-img-box" role="img" aria-label="woman enjoying food"></div>
+              </div>
+              </div>
     </main>
   </body>
 </html>
