@@ -28,15 +28,25 @@
     -ACCENTS:
     -GREY COLOR: 
 
+    -MEAL TAG COLORs:
+      -VEGETARIAN: ##4cd461
+      -VEGAN: #a4ce7c
+      -PALEO: #f8ed52
+
     -FONT COLORS:
     #2e1907
     #45260a
+    #555
+    #16331a
 
 --- SHADOWS
 
+    -SMALL: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)
+
 --- BORDER RADIUS
 
-    -Nav buttons: 10px
+    -Default: 10px
+    -Medium: 12px
 
 --- WHITESPACE
 
@@ -64,6 +74,10 @@ body {
   color: #45260a;
   line-height: 1;
   font-weight: 400;
+}
+
+strong {
+  font-weight: 500;
 }
 
 .heading-primary,
@@ -138,7 +152,7 @@ body {
 
 .btn--learnmore:hover,
 .btn--learnmore:active {
-  background-color: #f8d8bd;
+  background-color: #fae5d3;
   /* to add border inside and not have your page move slightly
   you can use box-shadow property and set the offsets to 0 and add
   the keyword inset to the beginning
@@ -146,10 +160,67 @@ body {
   */
 }
 
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  /* for links it common to remove the text decoration and add a border-bottom,
+  and currentColor will take the same text color used on the element */
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* if you want to remove the underline while hovering AND you dont' want the page to move at all, you can just set the border to transparent */
+  border-bottom: 1px solid transparent;
+}
+
+/********************************/
+/* HELPER ELEMENTS */
+/********************************/
+
+/* turn element into grid container */
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+}
+
+/* add grid and grd--2-cols to class name of html parent element you want to have two columns on */
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--center-v {
+  /* aligns child elements of container element to center vertically */
+  align-items: center;
+}
+
+/* 1140 or 1200 pixels is the standard width size for webpages */
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
 /* you can create helper classes like these for generic properties you want to reuse on multiple elements
 (usually used just for margins). To ensure this class gets applies no matter what other styles are already on the element, you can use the keyword !important */
 .margin-right-sm {
   margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
 }
 
 /********************************/
@@ -172,32 +243,8 @@ body {
   cursor: pointer;
 }
 
-/* turn element into grid container */
-.grid {
-  display: grid;
-  column-gap: 6.4rem;
-  row-gap: 9.6rem;
-}
-
-/* add grid and grd--2-cols to class name of html parent element you want to have two columns on */
-.grid--2-cols {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid--center-v {
-  /* aligns child elements of container element to center vertically */
-  align-items: center;
-}
-
-/* 1140 or 1200 pixels is the standard width size for webpages */
-.container {
-  max-width: 120rem;
-  padding: 0 3.2rem;
-  margin: 0 auto;
-}
-
 /********************************/
-/* NAVIATION */
+/* NAVIGATION */
 /********************************/
 
 .main-nav-list {
@@ -243,7 +290,7 @@ body {
 
 .section-hero {
   background-color: #fdf2e9;
-  padding: 4.8rem 0 9.6rem 0;
+  padding: 9.6rem 0;
 }
 
 .hero {
@@ -308,7 +355,7 @@ body {
 /********************************/
 
 .section-featured {
-  padding-top: 4.8rem;
+  padding: 4.8rem 0;
 }
 
 .heading-featured-in {
@@ -334,11 +381,11 @@ body {
 }
 
 /********************************/
-/* HOW TO */
+/* HOW IT WORKS */
 /********************************/
 
 /* will select the divs that are a child of the section-how div
- .section-how div div {
+.section-how div div {
   padding: 10rem;
   font-size: 5rem;
   background-color: aliceblue;
@@ -404,4 +451,111 @@ body {
 .step-description {
   font-size: 1.8rem;
   line-height: 1.8;
+}
+
+/********************************/
+/* MEALS & LIST OF DIETS */
+/********************************/
+.section-meals {
+  padding: 9.6rem 0;
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.meal:hover {
+  /* this will move the element up slightly when hovered*/
+  transform: translateY(-1rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #16331a;
+}
+
+.tag--vegetarian {
+  background-color: #4cd461;
+}
+
+.tag--vegan {
+  background-color: #a4ce7c;
+}
+
+.tag--paleo {
+  background-color: #f8ed52;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  color: #2e1907;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+}
+
+.meal-img {
+  width: 100%;
+}
+
+.meal-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  /* each icon pack works differently, for the ones in this project
+  from ionicon.io you change the color of them using the color property*/
+  color: #e67e22;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.list-icon {
+  width: 30px;
+  height: 30px;
+  color: #e67e22;
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
 }
