@@ -36,6 +36,7 @@
     -FONT COLORS:
     #2e1907
     #45260a
+    #998e87
     #555
     #16331a
 
@@ -558,4 +559,69 @@ strong {
 .all-recipes {
   text-align: center;
   font-size: 1.8rem;
+}
+
+/********************************/
+/* TESTIMONIALS */
+/********************************/
+
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  /* you can pretend these column values are like percentages, and have them all add up to 100 */
+  grid-template-columns: 60fr 40fr;
+
+  align-items: center;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonials-container {
+  padding: 9.6rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #998e87;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  /* will expand the image INSIDE of its box, it wont overflow the box */
+  overflow: hidden;
+}
+
+.gallery-item img {
+  /* the images were inline elements by default, so there was a small amount of whitespace in between the images
+  to fix this you can change it to be display:block  */
+  display: block;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
 }
