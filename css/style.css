@@ -81,6 +81,7 @@
 html {
   /* based on default font-size 16px so 62.5% of 16 = root font size of 10 */
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -88,6 +89,8 @@ body {
   color: #45260a;
   line-height: 1;
   font-weight: 400;
+  /* only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
 }
 
 strong {
@@ -209,6 +212,7 @@ strong {
   display: flex;
   gap: 1.6rem;
   align-items: center;
+  line-height: 1.2;
 }
 
 .list-icon {
@@ -289,6 +293,7 @@ will get a margin-bottom of 9.6rem*/
   justify-content: space-between;
   align-items: center;
   background-color: #fdf2e9;
+  position: relative;
 
   /* specify height for header so it can be sticky later- meaning it will stay in place while scrolling */
   height: 9.6rem;
@@ -306,7 +311,7 @@ will get a margin-bottom of 9.6rem*/
 .main-nav-list {
   list-style: none;
   display: flex;
-  gap: 3.2rem;
+  gap: 4.8rem;
   align-items: center;
 }
 
@@ -338,6 +343,30 @@ will get a margin-bottom of 9.6rem*/
 .main-nav-link.nav-cta:hover,
 .main-nav-link.nav-cta:active {
   background-color: #cf711f;
+}
+
+/********************************/
+/* MOBILE */
+/********************************/
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+/* another css trick - you can also select an element by name by first saying which class to select
+and then in brackets saying name + the name of the element */
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
 }
 
 /********************************/
