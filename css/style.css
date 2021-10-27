@@ -82,6 +82,7 @@ html {
   /* based on default font-size 16px so 62.5% of 16 = root font size of 10 */
   font-size: 62.5%;
   overflow-x: hidden;
+  /* scroll-behavior: smooth; does not CURRENTLY work on Safari */
 }
 
 body {
