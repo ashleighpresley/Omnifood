@@ -99,11 +99,19 @@
             </div>
           </div>
           <div class="hero-img-box">
-            <img
-              class="hero-img"
-              src="img/hero.png"
-              alt="woman enjoying food, meals in storage container, and food bowls on a table"
-            />
+            <!-- broswer will select whichever one it can display the best,
+            some browser versions do not support webp files, so they can display the png instead.
+          It will replace whichever is in the img element -->
+            <picture>
+              <source srcset="img/hero.webp" type="image/webp" />
+              <source srcset="img/hero-min.png" type="image/png" />
+
+              <img
+                class="hero-img"
+                src="img/hero-min.png"
+                alt="woman enjoying food, meals in storage container, and food bowls on a table"
+              />
+            </picture>
           </div>
         </div>
       </section>
