@@ -594,7 +594,7 @@
                 first meal is on us!
               </p>
 
-              <form class="cta-form grid grid--2-cols" action="#">
+              <form class="cta-form grid grid--2-cols" name="sign-up" netlify>
                 <div>
                   <label for="full-name">Full Name:</label>
                   <!-- the required keyword can be added so a user cannot submit a form until all the required input fields are filled out -->
@@ -602,6 +602,7 @@
                     id="full-name"
                     type="text"
                     placeholder="John Smith"
+                    name="full-name"
                     required
                   />
                 </div>
@@ -612,13 +613,14 @@
                     id="email"
                     type="email"
                     placeholder="jsmith@gmail.com"
+                    name="email-address"
                     required
                   />
                 </div>
 
                 <div>
                   <label for="select-where">Where did you hear from us?</label>
-                  <select id="select-where" required>
+                  <select id="select-where" name="select-where" required>
                     <!-- for the first value, "Please choose one option", we set the value to an empty string. This is so the user will choose an option, the form won't submit with an option that has an empty value selected. -->
                     <option value="">Please choose one option:</option>
                     <option value="friends">Friends and family</option>
